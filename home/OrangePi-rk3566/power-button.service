@@ -1,0 +1,13 @@
+[Unit]
+Description=Power button service (BTT Relay)
+#After=KlipperScreen.service
+StartLimitIntervalSec=0
+[Service]
+Type=simple
+Restart=always
+RestartSec=30
+User=root
+ExecStart=/home/orangepi/OrangePi-rk3566/power_button.sh
+
+[Install]
+WantedBy=multi-user.target

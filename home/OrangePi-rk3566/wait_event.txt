@@ -1,0 +1,3 @@
+for GPIO3_D5 monitoring
+sudo gpiomon --bias=pull-up --num-events=1 gpiochip3 29
+
