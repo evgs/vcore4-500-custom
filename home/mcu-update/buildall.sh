@@ -4,6 +4,9 @@ MUPD=$HOME/mcu-update
 
 cd $HOME/klipper
 
+mkdir -p $MUPD/manta
+mkdir -p $MUPD/ebb
+
 cp $MUPD/klipper-config-main-h723 .config
 make || die Manta build failed
 cp out/klipper.bin $MUPD/manta
