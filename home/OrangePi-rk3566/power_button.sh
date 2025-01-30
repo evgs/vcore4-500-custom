@@ -30,10 +30,18 @@ fi;
 
 while :
 do
-        #button check placeholder
-        #sleep 0.2
-        #[ `gpioget -B pull-up $gpiochip $pin` -eq 0 ] && continue
 	gpiomon --bias=pull-up --num-events=1 $gpiochip $pin
+
+	#debouncing
+	echo '0.0 debouncing'
+        sleep 0.1
+        [ `gpioget -B pull-up $gpiochip $pin` -ne "$pin_active" ] && continue
+	echo '0.1 debouncing'
+        sleep 0.1
+        [ `gpioget -B pull-up $gpiochip $pin` -ne "$pin_active" ] && continue
+	echo '0.2 debouncing'
+        sleep 0.1
+        [ `gpioget -B pull-up $gpiochip $pin` -ne "$pin_active" ] && continue
 
 
         echo "1. button event"
