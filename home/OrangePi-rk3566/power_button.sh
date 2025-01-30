@@ -13,7 +13,7 @@ gpiochip=gpiochip3
 pin=29
 pin_active=0
 
-safe_temp=50
+safe_temp=60
 
 #workaround for pullup
 gpio mode 24 up
