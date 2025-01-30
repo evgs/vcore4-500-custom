@@ -18,6 +18,8 @@ safe_temp=50
 #workaround for pullup
 gpio mode 24 up
 
+if [ "$(id -u)" -ne 0 ]; then echo "Please run as root." >&2; exit 1; fi
+
 #avoid exit if no physical button is connected
 #if [ `gpioget -B pull-up $gpiochip $pin` -eq `$pin_active` ]; then
 if [ `gpioget -B pull-up $gpiochip $pin` -eq 0 ]; then
